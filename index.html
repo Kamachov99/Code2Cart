@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E2E-Commerce - Marketplace Digital</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <i class="fas fa-shopping-cart cart-icon"></i>
+                    <span class="logo-text">
+                        <span class="part-code">Code</span><span class="part-2">2</span><span class="part-cart">Cart</span>
+                    </span>
+                </div>
+                
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Buscar produtos...">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="header-actions">
+                    <button class="btn-icon" id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                    <button class="btn-icon" id="userBtn">
+                        <i class="fas fa-user"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navegação -->
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="#" data-section="home">Início</a></li>
+                <li><a href="#" data-section="project">Visão do Projeto</a></li>
+                <li><a href="#" data-section="users">Gestão de Usuários</a></li>
+                <li><a href="#" data-section="products">Gestão de Produtos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="main-content">
+        <!-- Página Inicial -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h2>Bem-vindo ao Code2Cart! </h2>
+                        <p>Seu marketplace digital completo com gestão de usuários e produtos</p>
+                        <button class="btn-primary" onclick="showSection('products')">
+                            <i class="fas fa-shopping-bag"></i> Ver Produtos
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="features">
+                <div class="container">
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <i class="fas fa-users"></i>
+                            <h3>Gestão de Usuários</h3>
+                            <p>Cadastre e gerencie usuários do sistema</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-box"></i>
+                            <h3>Gestão de Produtos</h3>
+                            <p>Adicione e gerencie seu catálogo de produtos</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-search"></i>
+                            <h3>Busca Inteligente</h3>
+                            <p>Encontre produtos rapidamente</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visão do Projeto -->
+        <section id="project" class="section">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Visão do Projeto</h2>
+                </div>
+                <div class="project-content">
+                    <div class="project-card">
+                        <h3>Nossa Missão</h3>
+                        <p>Desenvolver uma plataforma de e-commerce completa e intuitiva que facilite a gestão de usuários e produtos, proporcionando uma experiência de compra moderna e eficiente.</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>Objetivos</h3>
+                        <ul>
+                            <li>Criar uma interface moderna e responsiva</li>
+                            <li>Implementar sistema completo de gestão de usuários</li>
+                            <li>Desenvolver módulo robusto de gestão de produtos</li>
+                            <li>Garantir experiência de usuário otimizada</li>
+                            <li>Utilizar apenas tecnologias frontend (HTML, CSS, JavaScript)</li>
+                        </ul>
+                    </div>
+                    <div class="project-card">
+                        <h3>Propósito</h3>
+                        <p>O E2E-Commerce foi desenvolvido como uma solução completa de marketplace digital, inspirado nas melhores práticas de plataformas como Magalu, Mercado Livre e Amazon, oferecendo todas as funcionalidades essenciais para um e-commerce moderno.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gestão de Usuários -->
+        <section id="users" class="section">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Gestão de Usuários</h2>
+                    <div class="page-actions">
+                        <button class="btn-primary" id="showRegisterForm">
+                            <i class="fas fa-user-plus"></i> Novo Usuário
+                        </button>
+                        <button class="btn-secondary" id="showLoginForm">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Formulário de Cadastro -->
+                <div class="form-container" id="registerForm">
+                    <h3>Cadastrar Usuário</h3>
+                    <form id="userForm">
+                        <div class="form-group">
+                            <label for="userName">Nome Completo *</label>
+                            <input type="text" id="userName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="userEmail">E-mail *</label>
+                            <input type="email" id="userEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="userPassword">Senha *</label>
+                            <input type="password" id="userPassword" required>
+                            <small>Mínimo 8 caracteres, com número e caractere especial</small>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Cadastrar</button>
+                            <button type="button" class="btn-secondary" onclick="hideForm('registerForm')">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Formulário de Login -->
+                <div class="form-container" id="loginForm">
+                    <h3>Login</h3>
+                    <form id="loginUserForm">
+                        <div class="form-group">
+                            <label for="loginEmail">E-mail</label>
+                            <input type="email" id="loginEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Senha</label>
+                            <input type="password" id="loginPassword" required>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Entrar</button>
+                            <button type="button" class="btn-secondary" onclick="hideForm('loginForm')">Cancelar</button>
+                            <button type="button" class="btn-link" id="forgotPassword">Esqueci minha senha</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Lista de Usuários -->
+                <div class="users-list" id="usersList">
+                    <h3>Usuários Cadastrados</h3>
+                    <div class="users-grid" id="usersGrid">
+                        <!-- Usuários serão inseridos aqui via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gestão de Produtos -->
+        <section id="products" class="section">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Gestão de Produtos</h2>
+                    <div class="page-actions">
+                        <button class="btn-primary" id="showProductForm">
+                            <i class="fas fa-plus"></i> Novo Produto
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Formulário de Produto -->
+                <div class="form-container" id="productForm">
+                    <h3>Cadastrar Produto</h3>
+                    <form id="productFormElement">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="productTitle">Título *</label>
+                                <input type="text" id="productTitle" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="productCategory">Categoria *</label>
+                                <select id="productCategory" required>
+                                    <option value="">Selecione...</option>
+                                    <option value="eletrônicos">Eletrônicos</option>
+                                    <option value="roupas">Roupas</option>
+                                    <option value="casa">Casa e Decoração</option>
+                                    <option value="esportes">Esportes</option>
+                                    <option value="livros">Livros</option>
+                                    <option value="beleza">Beleza</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="productDescription">Descrição *</label>
+                            <textarea id="productDescription" rows="4" required></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="productPrice">Preço *</label>
+                                <input type="number" id="productPrice" step="0.01" min="0" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="productStock">Estoque *</label>
+                                <input type="number" id="productStock" min="0" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="productImage">URL da Imagem *</label>
+                            <input type="url" id="productImage" required>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Salvar Produto</button>
+                            <button type="button" class="btn-secondary" onclick="hideForm('productForm')">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Lista de Produtos -->
+                <div class="products-section">
+                    <h3>Produtos Cadastrados</h3>
+                    <div class="products-grid" id="productsGrid">
+                        <!-- Produtos serão inseridos aqui via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de Detalhes do Produto -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <div class="modal-body" id="modalBody">
+                <!-- Conteúdo do modal será inserido aqui -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal do Carrinho -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <span class="close" id="closeCartModal">&times;</span>
+            <div class="modal-body">
+                <h3>Carrinho de Compras</h3>
+                <div id="cartItems">
+                    <!-- Itens do carrinho serão inseridos aqui -->
+                </div>
+                <div class="cart-total">
+                    <strong>Total: R$ <span id="cartTotal">0,00</span></strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
